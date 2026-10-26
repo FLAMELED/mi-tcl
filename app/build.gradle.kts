@@ -23,9 +23,9 @@ android {
     signingConfigs {
         create("personal") {
             storeFile = file("personal.keystore")
-            storePassword = System.getenv("SIGNING_PASSWORD")
+            storePassword = System.getenv("SIGNING_PASSWORD")?.trim()
             keyAlias = "mitcl"
-            keyPassword = System.getenv("SIGNING_PASSWORD")
+            keyPassword = System.getenv("SIGNING_PASSWORD")?.trim()
         }
     }
 
