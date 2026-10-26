@@ -12,7 +12,8 @@ android {
         applicationId = "com.mdl.tclremote"
         minSdk = 31
         targetSdk = 35
-        versionCode = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
+        // En CI, BUILD = número de ejecución + 100 (ver .github/workflows/apk.yml).
+        versionCode = System.getenv("BUILD")?.toIntOrNull() ?: 1
         versionName = "1.0.$versionCode"
     }
 

@@ -16,7 +16,7 @@ data class UpdateInfo(val build: Int, val url: String)
 
 /** Comprueba si hay un APK más nuevo publicado en la release «mi-tcl-latest» de GitHub. */
 object Updates {
-    private const val RELEASE_API = "https://api.github.com/repos/FLAMELED/simple-proxy/releases/tags/mi-tcl-latest"
+    private const val RELEASE_API = "https://api.github.com/repos/FLAMELED/mi-tcl/releases/tags/mi-tcl-latest"
     private const val CHECK_EVERY_MS = 6L * 3600 * 1000
 
     private val _available = MutableStateFlow<UpdateInfo?>(null)

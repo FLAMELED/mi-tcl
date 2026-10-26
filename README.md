@@ -21,8 +21,8 @@ App Android personal para controlar una TV **TCL 65C6K (Google TV)** desde un Xi
 
 ## Instalar
 
-Cada push a `tcl-remote/` compila el APK en GitHub Actions y lo publica en la release
-`mi-tcl-latest` del repositorio. Descarga `MiTCL.apk` desde el móvil y ábrelo (Android pedirá
+Cada push a `main` compila el APK en GitHub Actions y lo publica en la release
+`mi-tcl-latest`: https://github.com/FLAMELED/mi-tcl/releases/download/mi-tcl-latest/MiTCL.apk Descarga `MiTCL.apk` desde el móvil y ábrelo (Android pedirá
 permiso para instalar apps de origen desconocido).
 
 ## Primer uso
