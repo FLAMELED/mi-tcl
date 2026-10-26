@@ -18,6 +18,8 @@ android {
     }
 
     // Clave fija para que cada APK nuevo se instale encima del anterior sin desinstalar.
+    // No está en el repositorio: en CI se crea a partir de los secretos SIGNING_KEYSTORE_BASE64
+    // y SIGNING_PASSWORD (ver .github/workflows/apk.yml).
     signingConfigs {
         create("personal") {
             storeFile = file("personal.keystore")

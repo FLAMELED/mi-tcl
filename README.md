@@ -34,5 +34,6 @@ caracteres que aparece en la pantalla de la TV.
 
 Requiere Android SDK (Android Studio): `./gradlew assembleRelease`.
 
-`app/personal.keystore` es una clave de firma solo para esta app personal, incluida para que las
-actualizaciones se instalen encima sin desinstalar.
+La clave de firma no está en el repositorio. GitHub Actions la crea a partir de dos secretos
+(Settings › Secrets and variables › Actions): `SIGNING_KEYSTORE_BASE64` (el archivo `.keystore` en
+base64) y `SIGNING_PASSWORD`. Es siempre la misma clave, así que cada APK se instala encima del anterior.
