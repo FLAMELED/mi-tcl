@@ -35,6 +35,21 @@ jobs:
           fi
           echo "$SIGNING_KEYSTORE_BASE64" | base64 -d > app/personal.keystore
 
+      - name: Check signing secrets
+        env:
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+        run: |
+          # Diagnóstico sin revelar secretos: huella del archivo de clave y si la contraseña lo abre.
+          echo "Huella de la clave: $(sha256sum app/personal.keystore | cut -c1-16)"
+          PASS="$(printf '%s' "$SIGNING_PASSWORD" | tr -d '[:space:]')"
+          echo "Longitud de la contraseña: ${#PASS}"
+          if keytool -list -keystore app/personal.keystore -storepass "$PASS" >/dev/null 2>&1; then
+            echo "La contraseña abre la clave"
+          else
+            echo "::error::SIGNING_PASSWORD no abre la clave de SIGNING_KEYSTORE_BASE64"
+            exit 1
+          fi
+
       - name: Build number
         run: echo "BUILD=$((GITHUB_RUN_NUMBER + BUILD_NUMBER_OFFSET))" >> "$GITHUB_ENV"
 
